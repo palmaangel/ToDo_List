@@ -1,6 +1,14 @@
-var toDoListItem = document.querySelectorAll('#todoContainer li .item')
-var toDoItem = prompt("What do you want to add?")
+var toDoItem = prompt("What do you want to add?");
+var buttons = document.querySelectorAll('#todoContainer #todo-button');
+const addItem = document.querySelector('#todoContainer .todoItemList');
 
+buttons.forEach(function(button){
+    button.addEventListener('click',function(e){
 
-const addItem = document.querySelector('#todoitemlist');
-addItem.innerHTML += '<li class="item">' + toDoItem + '<button class="todo-button" type="submit"><i> REMOVE</i></button></li>'
+        const li = e.target.parentElement;
+        li.parentNode.removeChild(li);
+    });
+
+});
+
+addItem.innerHTML += '<li> <span class="item">' , toDoItem , '</span> <span id="todo-button">REMOVE</span></li>'
